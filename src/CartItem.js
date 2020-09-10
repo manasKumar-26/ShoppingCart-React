@@ -5,15 +5,26 @@ class CartItem extends React.Component{
         this.state={
             title:'Phone',
             price:'999',
-            qty:'1',
+            qty:1,
             img:'https://cdn.mos.cms.futurecdn.net/7TC7pcZvnFa9xPDgU6V6VQ.jpg'
         }
     }
     incQuan=()=>{
-        console.log(this);
-        console.log(this.state)
-        this.state.qty++;
-        document.getElementById('quant').innerText=this.state.qty;
+        this.setState((pervState)=>{
+            return {
+                title:'Apple Iphone',
+                qty:pervState.qty+1,
+            }
+        });
+    }
+    decQuan=()=>{
+        if(this.state.qty==0){
+            return;
+        }
+
+        this.setState({
+            qty:this.state.qty-1,
+        });
     }
     render(){
         const {title,price,qty,img}=this.state;
@@ -25,10 +36,10 @@ class CartItem extends React.Component{
                 <div className="right-block">
                     <div style={{fontFamily:"cursive",fontSize:22}}>{title}</div>
                     <div style={{color:'#7777'}}>{price} $</div>
-                    <div style={{color:'#7777'}} id="quant">{qty}</div>
+                    <div style={{color:'#7777'}}>{qty}</div>
                     <div className="cart-item-actions">
                         <img alt="Add Item" src="https://image.flaticon.com/icons/svg/992/992651.svg" className="action-icons" onClick={this.incQuan}/>
-                        <img alt="Remove Item" src="https://image.flaticon.com/icons/svg/992/992683.svg" className="action-icons"/>
+                        <img alt="Remove Item" src="https://image.flaticon.com/icons/svg/992/992683.svg" className="action-icons" onClick={this.decQuan}/>
                         <img alt="Delete Item" src="https://image.flaticon.com/icons/svg/3455/3455946.svg" className="action-icons"/>
                     </div>
                 </div>
