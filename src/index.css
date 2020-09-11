@@ -13,6 +13,9 @@ body {
 .cart-item {
   display: inline-flex;
   margin: 20px 10px;
+  border: 1px solid black;
+  padding:5px;
+  width: 50vw;
 }
 .left-block,.right-block {
   padding: 0 20px;
@@ -27,4 +30,9 @@ body {
 }
 .action-icons:hover {
   cursor: pointer;
+}
+.cartBox{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 }

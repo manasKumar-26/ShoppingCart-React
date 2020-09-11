@@ -1,33 +1,22 @@
 import React from 'react';
 class CartItem extends React.Component{
-    constructor(){
-        super()
-        this.state={
-            title:'Phone',
-            price:'999',
-            qty:1,
-            img:'https://cdn.mos.cms.futurecdn.net/7TC7pcZvnFa9xPDgU6V6VQ.jpg'
-        }
-    }
     incQuan=()=>{
         this.setState((pervState)=>{
             return {
-                title:'Apple Iphone',
                 qty:pervState.qty+1,
             }
         });
     }
     decQuan=()=>{
-        if(this.state.qty==0){
+        if(this.state.qty===0){
             return;
         }
-
         this.setState({
             qty:this.state.qty-1,
         });
     }
     render(){
-        const {title,price,qty,img}=this.state;
+        const {title,price,qty,img}=this.props.product;
         return(
             <div className="cart-item">
                 <div className="left-block">
