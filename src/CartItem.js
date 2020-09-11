@@ -34,7 +34,7 @@ class CartItem extends React.Component{
                     <div className="cart-item-actions">
                         <img alt="Add Item" src="https://image.flaticon.com/icons/svg/992/992651.svg" className="action-icons" onClick={this.incQuan}/>
                         <img alt="Remove Item" src="https://image.flaticon.com/icons/svg/992/992683.svg" className="action-icons" onClick={()=>this.props.dec(this.props.product)}/>
-                        <img alt="Delete Item" src="https://image.flaticon.com/icons/svg/3455/3455946.svg" className="action-icons" onClick={()=>this.props.del(this.props.product.key)}/>
+                        <img alt="Delete Item" src="https://www.flaticon.com/svg/static/icons/svg/1214/1214428.svg" className="action-icons" onClick={()=>this.props.del(this.props.product.key)}/>
                     </div>
                 </div>
             </div>
