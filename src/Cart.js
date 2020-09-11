@@ -8,28 +8,28 @@ class Cart extends React.Component{
             product:[
                 {
                     title:'Iphone 11 Pro',
-                    price:'999',
+                    price:999,
                     qty:1,
                     img:'https://cdn.mos.cms.futurecdn.net/7TC7pcZvnFa9xPDgU6V6VQ.jpg',
                     key:Math.floor(Math.random()*99)
                 },
                 {
                     title:'Apple Watch Series 5',
-                    price:'199',
+                    price:199,
                     qty:1,
                     img:'https://wallpaperaccess.com/full/1568237.jpg',
                     key:Math.floor(Math.random()*99)
                 },
                 {
                     title:'Apple Macbook Pro',
-                    price:'1999',
+                    price:1580,
                     qty:1,
                     img:'https://images-na.ssl-images-amazon.com/images/I/71IQiviMzWL._AC_SL1500_.jpg',
                     key:Math.floor(Math.random()*99)
                 },
                 {
                     title:'Sony Play-Station 4',
-                    price:'899',
+                    price:899,
                     qty:1,
                     img:'https://cdn.wallpapersafari.com/81/10/oniJ0P.png',
                     key:Math.floor(Math.random()*99)
@@ -68,6 +68,14 @@ class Cart extends React.Component{
             count:this.state.count-deleteItem.qty
         })
     }
+    totalAmount=()=>{
+        const {product}=this.state;
+        let totalAmount=0;
+        product.forEach((item)=>{
+            totalAmount+=(item.qty*item.price);
+        });
+        return totalAmount;
+    }
     render(){
         const { product }=this.state
         return(
@@ -84,6 +92,8 @@ class Cart extends React.Component{
                     />
                 })}
             </div>
+            <hr/>
+            <div className="checkout">Total Payable Amount : {this.totalAmount()}</div>
             </React.Fragment>
         );
     }

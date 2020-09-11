@@ -13,9 +13,7 @@ body {
 .cart-item {
   display: inline-flex;
   margin: 20px 10px;
-  border: 1px solid black;
-  padding:5px;
-  width: 50vw;
+  padding:10px;
 }
 .left-block,.right-block {
   padding: 0 20px;
@@ -35,4 +33,9 @@ body {
   display: flex;
   flex-direction: column;
   padding: 5px;
+}
+.checkout{
+  font-size: 25px;
+  font-family: sans-serif;
+  text-align: center;
 }
