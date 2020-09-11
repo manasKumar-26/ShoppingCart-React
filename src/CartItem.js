@@ -1,19 +1,24 @@
 import React from 'react';
 class CartItem extends React.Component{
     incQuan=()=>{
-        this.setState((pervState)=>{
-            return {
-                qty:pervState.qty+1,
-            }
-        });
+        // this.setState((pervState)=>{
+        //     return {
+        //         title:'Apple Iphone',
+        //         qty:pervState.qty+1,
+        //     }
+        // });
+        this.props.inc(this.props.product)
+
     }
     decQuan=()=>{
-        if(this.state.qty===0){
-            return;
-        }
-        this.setState({
-            qty:this.state.qty-1,
-        });
+        // if(this.state.qty==0){
+        //     return;
+        // }
+
+        // this.setState({
+        //     qty:this.state.qty-1,
+        // });
+        this.props.dec(this.props.product);
     }
     render(){
         const {title,price,qty,img}=this.props.product;
@@ -28,7 +33,7 @@ class CartItem extends React.Component{
                     <div style={{color:'#7777'}}>{qty}</div>
                     <div className="cart-item-actions">
                         <img alt="Add Item" src="https://image.flaticon.com/icons/svg/992/992651.svg" className="action-icons" onClick={this.incQuan}/>
-                        <img alt="Remove Item" src="https://image.flaticon.com/icons/svg/992/992683.svg" className="action-icons" onClick={this.decQuan}/>
+                        <img alt="Remove Item" src="https://image.flaticon.com/icons/svg/992/992683.svg" className="action-icons" onClick={()=>this.props.dec(this.props.product)}/>
                         <img alt="Delete Item" src="https://image.flaticon.com/icons/svg/3455/3455946.svg" className="action-icons"/>
                     </div>
                 </div>
